@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">基础开源框架</string>
+    <string name="tip">一般地，存储大小的转换是通过将字节数除以或乘以一个特定的值（如1024或1000）来计算。常规情况下，系统采用1024，各个存储厂商采用1000的方式进行计算。此demo仅作演示两种不同计算方法产生的不同结果。</string>
 </resources>
