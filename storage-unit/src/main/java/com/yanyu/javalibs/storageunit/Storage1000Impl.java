@@ -23,7 +23,7 @@ public class Storage1000Impl extends AbstractStorage {
     }
 
     public static String sWrapSize(long length) {
-        return Util.wrapSize(values(), length, Constant.UNIT_BYTE);
+        return Util.wrapSize(values(), length);
     }
 
     @Override

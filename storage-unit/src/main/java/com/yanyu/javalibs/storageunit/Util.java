@@ -4,17 +4,17 @@ import java.util.Locale;
 
 class Util {
 
-    static <T extends IStorageParamsGetter> String wrapSize(T[] storages, long length, long unitByte) {
+    static <T extends IStorageParamsGetter> String wrapSize(T[] storages, long length) {
         for (T value : storages) {
             if (length < value.iGetLongUnit()) {
-                return wrapSize(value, length, unitByte);
+                return wrapSize(value, length);
             }
         }
         return length + "B";
     }
 
-    static <T extends IStorageParamsGetter> String wrapSize(T storage, long length, long unitByte) {
-        float data = length * unitByte * 1F / storage.iGetLongUnit();
+    static <T extends IStorageParamsGetter> String wrapSize(T storage, long length) {
+        float data = length * storage.iGetUnitByte() * 1F / storage.iGetLongUnit();
         return wrapSize(data, storage.iGetStringUnit());
     }
 

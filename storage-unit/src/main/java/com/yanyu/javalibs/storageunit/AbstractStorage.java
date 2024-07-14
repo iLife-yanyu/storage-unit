@@ -6,7 +6,7 @@ abstract class AbstractStorage implements IByteConvert, IStorageParamsGetter {
 
     protected final long lUnit;
     protected final StorageName storageName;
-    private volatile IByteConvert IByteConvert;
+    private volatile IByteConvert iByteConvert;
 
     AbstractStorage(StorageName storageName, long lUnit) {
         this.storageName = storageName;
@@ -14,14 +14,14 @@ abstract class AbstractStorage implements IByteConvert, IStorageParamsGetter {
     }
 
     private IByteConvert createByteConvert() {
-        if (IByteConvert == null) {
+        if (iByteConvert == null) {
             synchronized (this) {
-                if (IByteConvert == null) {
-                    IByteConvert = ConvertFactory.createByteConvert(this.storageName, iGetUnitByte());
+                if (iByteConvert == null) {
+                    iByteConvert = ConvertFactory.createByteConvert(this.storageName, iGetUnitByte());
                 }
             }
         }
-        return IByteConvert;
+        return iByteConvert;
     }
 
     public String wrapSize(File file) {
@@ -29,7 +29,7 @@ abstract class AbstractStorage implements IByteConvert, IStorageParamsGetter {
     }
 
     public String wrapSize(long length) {
-        return Util.wrapSize(this, length, iGetUnitByte());
+        return Util.wrapSize(this, length);
     }
 
     @Override
