@@ -17,7 +17,7 @@ public class StorageUtil {
                 Storage1000Impl.TB, // TB
         };
         for (Storage1000Impl value : values) {
-            if (Objects.equals(value.iGetStringUnit(), name)) {
+            if (Objects.equals(value.iGetUnitName(), name)) {
                 return value;
             }
         }
@@ -34,7 +34,7 @@ public class StorageUtil {
                 Storage1024Impl.TB, // TB
         };
         for (Storage1024Impl value : values) {
-            if (Objects.equals(value.iGetStringUnit(), name)) {
+            if (Objects.equals(value.iGetUnitName(), name)) {
                 return value;
             }
         }

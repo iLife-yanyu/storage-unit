@@ -6,7 +6,7 @@ class Util {
 
     static <T extends IStorageParamsGetter> String wrapSize(T[] storages, long length) {
         for (T value : storages) {
-            if (length < value.iGetLongUnit()) {
+            if (length < value.iGetConversionRatioUnit()) {
                 return wrapSize(value, length);
             }
         }
@@ -14,8 +14,8 @@ class Util {
     }
 
     static <T extends IStorageParamsGetter> String wrapSize(T storage, long length) {
-        float data = length * storage.iGetUnitByte() * 1F / storage.iGetLongUnit();
-        return wrapSize(data, storage.iGetStringUnit());
+        float data = length * storage.iGetConversionRatio() * 1F / storage.iGetConversionRatioUnit();
+        return wrapSize(data, storage.iGetUnitName());
     }
 
     static String wrapSize(float length, String sUnit) {
